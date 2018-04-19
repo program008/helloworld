@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Html 表格</title>
+</head>
+<body>
+<table border="1" cellpadding="10">
+    <tr>
+        <th>header1</th>
+        <th>header2</th>
+    </tr>
+    <tr>
+        <td>row1,cell1</td>
+        <td>row1,cell2</td>
+    </tr>
+    <tr>
+        <td>row2,cell1</td>
+        <td>row2,cell2</td>
+    </tr>
+</table>
+<br/>
+<table border="1" cellspacing="0">
+    <caption>Monthly savings</caption>
+    <tr>
+        <th>Month</th>
+        <th>Savings</th>
+    </tr>
+    <tr>
+        <td>January</td>
+        <td>$100</td>
+    </tr>
+    <tr>
+        <td>February</td>
+        <td>$50</td>
+    </tr>
+</table>
+<br/>
+<h4>单元格跨两格:</h4>
+<table border="1">
+    <tr>
+        <th>Name</th>
+        <th colspan="2">Telephone</th>
+    </tr>
+    <tr>
+        <td>Bill Gates</td>
+        <td>555 77 854</td>
+        <td>555 77 855</td>
+    </tr>
+</table>
+
+<h4>单元格跨两列:</h4>
+<table border="1">
+    <tr>
+        <th>First Name:</th>
+        <td>Bill Gates</td>
+    </tr>
+    <tr>
+        <th rowspan="2">Telephone:</th>
+        <td>555 77 854</td>
+    </tr>
+    <tr>
+        <td>555 77 855</td>
+    </tr>
+</table>
+
+<h4>单元格跨两格和两行</h4>
+<table border="1">
+    <caption>单元格跨两格和两行</caption>
+    <tr>
+        <th>name</th>
+        <th colspan="2">dec</th>
+    </tr>
+    <tr>
+        <th>gen</th>
+        <td colspan="2">11</td>
+        <td colspan="2">11</td>
+    </tr>
+    <tr>
+        <th>33</th>
+        <td colspan="2">11</td>
+        <td rowspan="2">11</td>
+    </tr>
+</table>
+<br/>
+<table border="1">
+    <tr>
+        <td>
+            <p>这是一个段落</p>
+            <p>这是另一个段落</p>
+        </td>
+        <td>这个单元格包含一个表格:
+            <table border="1">
+                <tr>
+                    <td>A</td>
+                    <td>B</td>
+                </tr>
+                <tr>
+                    <td>C</td>
+                    <td>D</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td>这个单元格包含一个列表
+            <ul>
+                <li>apples</li>
+                <li>bananas</li>
+                <li>pineapples</li>
+            </ul>
+        </td>
+        <td>HELLO</td>
+    </tr>
+</table>
+<!--
+border="1"
+cellpadding="10"
+cellspacing="0"
+-->
+</body>
+</html>
