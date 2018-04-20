@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Html storage 存储</title>
+    <script>
+        function clickCounter() {
+            if (typeof(Storage) !== "undefined") {
+                if (localStorage.clickcount) {
+                    localStorage.clickcount = Number(localStorage.clickcount) + 1;
+                } else {
+                    localStorage.clickcount = 1;
+                }
+            } else {
+                document.getElementById("result").innerHTML = "对不起，您的浏览器不支持web存储。"
+            }
+            document.getElementById("result").innerHTML = "您点击了" + localStorage.clickcount + "次";
+
+        }
+
+        //保存数据
+        function save() {
+            var siteurl = document.getElementById("siteurl").value;
+            var sitename = document.getElementById("sitename").value;
+            localStorage.setItem(sitename, siteurl);
+            alert("添加成功");
+        }
+
+        //查找数据
+        function find() {
+            var search_site = document.getElementById("search_site").value;
+            var sitename = localStorage.getItem(search_site);
+            var find_result = document.getElementById("find_result");
+            find_result.innerHTML = search_site + "的网址是：" + sitename;
+        }
+
+        //保存数据
+        function save2() {
+            var site = new Object;
+            site.keyname = document.getElementById("keyname2").value;
+            site.sitename = document.getElementById("sitename2").value;
+            site.siteurl = document.getElementById("siteurl2").value;
+            var str = JSON.stringify(site); // 将对象转换为字符串
+            localStorage.setItem(site.keyname, str);
+            alert("保存成功");
+        }
+
+        //查找数据
+        function find2() {
+            var search_site = document.getElementById("search_site2").value;
+            var str = localStorage.getItem(search_site);
+            var find_result = document.getElementById("find_result2");
+            var site = JSON.parse(str);
+            find_result.innerHTML = search_site + "的网站名是：" + site.sitename + "，网址是：" + site.siteurl;
+        }
+    </script>
+</head>
+<body>
+<div id="div1"></div>
+<script>
+    var name = document.getElementById("div1");
+    if (typeof (Storage) !== "undefined") {
+        localStorage.sitename = "html教程";
+        document.getElementById("div1").innerHTML = "网站名：" + localStorage.sitename;
+    } else {
+        document.getElementById("div1").innerHTML = "对不起，您的浏览器不支持 web 存储。";
+    }
+</script>
+<br/>
+<br/>
+<p>
+    <button onclick="clickCounter()" type="button">点我！</button>
+</p>
+<div id="result"></div>
+<p>点击该按钮查看计数器的增加。</p>
+<p>关闭浏览器选项卡(或窗口),重新打开此页面,计数器将继续计数(不是重置)。</p>
+
+
+<br/>
+<br/>
+<div style="border: 2px dashed #ccc;width:320px;text-align:center;">
+    <label for="sitename">网站名(key)：</label>
+    <input type="text" id="sitename" name="sitename" class="text"/>
+    <br/>
+    <label for="siteurl">网 址(value)：</label>
+    <input type="text" id="siteurl" name="siteurl"/>
+    <br/>
+    <input type="button" onclick="save()" value="新增记录"/>
+    <hr/>
+    <label for="search_site">输入网站名：</label>
+    <input type="text" id="search_site" name="search_site"/>
+    <input type="button" onclick="find()" value="查找网站"/>
+    <p id="find_result"><br/></p>
+</div>
+
+<br/>
+<br/>
+<div style="border: 2px dashed #ccc;width:320px;text-align:center;">
+    <label for="keyname2">别名(key):</label>
+    <input type="text" id="keyname2" name="keyname" class="text"/>
+    <br/>
+    <label for="sitename">网站名：</label>
+    <input type="text" id="sitename2" name="sitename" class="text"/>
+    <br/>
+    <label for="siteurl">网 址：</label>
+    <input type="text" id="siteurl2" name="siteurl"/>
+    <br/>
+    <input type="button" onclick="save2()" value="新增记录"/>
+    <hr/>
+    <label for="search_site2">输入别名(key)：</label>
+    <input type="text" id="search_site2" name="search_site"/>
+    <input type="button" onclick="find2()" value="查找网站"/>
+    <p id="find_result2"><br/></p>
+</div>
+</body>
+</html>
