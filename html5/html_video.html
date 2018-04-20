@@ -14,5 +14,46 @@
 <audio controls>
     <source src="../media/horse.ogg">
 </audio>
+<br/>
+<br/>
+<br/>
+<br/>
+
+<p>HTML5 &lt;video&gt; - 使用 DOM 进行控制</p>
+<div style="text-align:center">
+    <button onclick="playPause()">播放/暂停</button>
+    <button onclick="makeBig()">放大</button>
+    <button onclick="makeSmall()">缩小</button>
+    <button onclick="makeNormal()">普通</button>
+    <br>
+    <video id="video1" width="420">
+        <source src="../media/mov_bbb.mp4" type="video/mp4">
+        <source src="../media/mov_bbb.ogg" type="video/ogg">
+        您的浏览器不支持 HTML5 video 标签。
+    </video>
+</div>
+<script>
+    var video = document.getElementById("video1");
+
+    function playPause() {
+        if (video.paused)
+            video.play();
+        else
+            video.pause();
+
+    }
+
+    function makeBig() {
+        video.width = 540;
+    }
+
+    function makeSmall() {
+        video.width = 320;
+    }
+
+    function makeNormal() {
+        video.width = 420;
+    }
+</script>
 </body>
 </html>
